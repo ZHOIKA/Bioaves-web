@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Uirapuru",
+    "species": "Cyphorhinus arada",
+    "locationFound": "Floresta Amazônica do Norte do Maranhão",
+    "photoUrl": "https://images.unsplash.com/photo-1541417813591-6a79bafeae0a?auto=format&fit=crop&w=900&q=80",
+    "description": "O canto do uirapuru é famoso e misterioso. Essa ave traz poesia a quem a observa nas matas do Norte maranhense.",
+    "region": "Norte",
+    "createdAt": "2026-05-25T08:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "name": "Arara-azul",
+    "species": "Anodorhynchus hyacinthinus",
+    "locationFound": "Rios e ilhas do Oeste Maranhense",
+    "photoUrl": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80",
+    "description": "Uma ave vibrante e imponente, a arara-azul é um destaque raro nas áreas alagadas do Oeste.",
+    "region": "Oeste",
+    "createdAt": "2026-05-25T08:30:00.000Z"
+  },
+  {
+    "id": 3,
+    "name": "Galo-da-serra",
+    "species": "Rupicola rupicola",
+    "locationFound": "Chapadas do Centro Maranhense",
+    "photoUrl": "https://images.unsplash.com/photo-1585788140704-a3d8c5344149?auto=format&fit=crop&w=900&q=80",
+    "description": "Encontrado nas serras e chapadas do Centro do Maranhão, seu brilho laranja é inconfundível.",
+    "region": "Centro",
+    "createdAt": "2026-05-25T09:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "name": "Beija-flor-de-banda-branca",
+    "species": "Amazilia chionogaster",
+    "locationFound": "Restingas e mata Atlântica costeira",
+    "photoUrl": "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=900&q=80",
+    "description": "Essa espécie se adapta bem à costa leste do estado, com muitas flores entre manguezais e restingas.",
+    "region": "Leste",
+    "createdAt": "2026-05-25T09:30:00.000Z"
+  },
+  {
+    "id": 5,
+    "name": "Jaburu",
+    "species": "Jabiru mycteria",
+    "locationFound": "Planícies alagadas do Sul do Maranhão",
+    "photoUrl": "https://images.unsplash.com/photo-1514077582913-8e2fe0cf6f89?auto=format&fit=crop&w=900&q=80",
+    "description": "O jaburu é típico das áreas alagadas do Sul, onde rios e brejos formam seu habitat ideal.",
+    "region": "Sul",
+    "createdAt": "2026-05-25T10:00:00.000Z"
+  }
+]

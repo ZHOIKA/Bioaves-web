@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
   <link rel="stylesheet" href="map-styles.css" />
   <link rel="stylesheet" href="ui-refresh.css" />
+  <link rel="stylesheet" href="download-app.css" />
 </head>
 <body>
   <div class="container">
@@ -21,6 +22,14 @@
       <div class="toolbar">
         <button class="button" id="btn-view">Ver catálogo</button>
         <button class="secondary" id="toggleFeedButton">Modo Feed</button>
+        <a class="app-download-link" href="https://raw.githubusercontent.com/ZHOIKA/Bioaves/main/downloads/BioAves.apk" title="Baixar app BioAves" aria-label="Baixar app BioAves">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v12"></path>
+            <path d="m7 10 5 5 5-5"></path>
+            <path d="M5 21h14"></path>
+          </svg>
+          <span>Baixar app</span>
+        </a>
         <button class="secondary theme-btn" id="themeToggle" title="Alternar tema"></button>
         <button class="secondary" id="adminButton">Entrar como admin</button>
       </div>

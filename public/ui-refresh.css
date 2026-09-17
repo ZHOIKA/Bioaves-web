@@ -1,0 +1,272 @@
+/* BioAves UI refresh — visual layer only */
+:root {
+  --bg: #eef7f1;
+  --surface: rgba(255,255,255,.82);
+  --surface-strong: #ffffff;
+  --surface-soft: rgba(255,255,255,.64);
+  --text: #11261d;
+  --muted: #60736a;
+  --accent: #168257;
+  --accent-2: #2ca87a;
+  --accent-soft: rgba(22,130,87,.12);
+  --border: rgba(17,38,29,.10);
+  --shadow: 0 24px 70px rgba(24,73,52,.12);
+  --shadow-soft: 0 12px 34px rgba(24,73,52,.09);
+  --glass: blur(18px) saturate(130%);
+}
+
+[data-theme="dark"] {
+  --bg: #07110d;
+  --surface: rgba(13,27,21,.84);
+  --surface-strong: #0d1b15;
+  --surface-soft: rgba(20,41,32,.72);
+  --text: #effaf4;
+  --muted: #9db3a8;
+  --accent: #55d29c;
+  --accent-2: #2fb87f;
+  --accent-soft: rgba(85,210,156,.14);
+  --border: rgba(201,255,230,.10);
+  --shadow: 0 28px 80px rgba(0,0,0,.42);
+  --shadow-soft: 0 14px 38px rgba(0,0,0,.28);
+}
+
+html,body { background: var(--bg) !important; }
+body {
+  background-image:
+    radial-gradient(circle at 8% 3%, rgba(55,173,121,.12), transparent 26%),
+    radial-gradient(circle at 92% 16%, rgba(38,139,102,.10), transparent 23%),
+    linear-gradient(180deg,var(--bg),var(--bg)) !important;
+}
+
+.container { max-width: 1240px; }
+
+.header {
+  min-height: 430px;
+  padding: clamp(28px,5vw,58px) !important;
+  border-radius: 34px !important;
+  align-items: flex-end !important;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 32px 90px rgba(4,28,18,.25);
+  background-position: center 42% !important;
+  background-image:
+    linear-gradient(105deg,rgba(3,18,12,.88) 0%,rgba(3,18,12,.56) 48%,rgba(3,18,12,.20) 100%),
+    url('/assets/images/img-home.jpg') !important;
+}
+.header::after {
+  content:"";
+  position:absolute; inset:auto -10% -45% 35%; height:80%;
+  background:radial-gradient(circle,rgba(79,220,157,.22),transparent 62%);
+  pointer-events:none;
+}
+.brand,.toolbar { position:relative; z-index:1; }
+.brand small {
+  padding:8px 12px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(10px);
+  border-radius:999px;
+  letter-spacing:.12em !important;
+}
+.brand h1 { max-width: 720px; font-size:clamp(2.5rem,5vw,4.7rem) !important; letter-spacing:-.045em; }
+.brand p { max-width:680px !important; font-size:1.06rem !important; }
+.toolbar { align-self:flex-start; }
+
+.button,.secondary {
+  border-radius:999px !important;
+  min-height:46px;
+  font-weight:700;
+  box-shadow:none;
+}
+.header .secondary {
+  color:#fff !important;
+  background:rgba(255,255,255,.11) !important;
+  border-color:rgba(255,255,255,.18) !important;
+  backdrop-filter:blur(12px);
+}
+.header .secondary:hover { background:rgba(255,255,255,.18) !important; }
+.button { background:linear-gradient(135deg,var(--accent),var(--accent-2)) !important; color:#fff !important; }
+.button:hover,.secondary:hover { transform:translateY(-2px) !important; }
+.theme-btn { background-color:rgba(255,255,255,.11) !important; }
+
+.image-marquee {
+  margin-top:26px;
+  background:transparent !important;
+  border:0 !important;
+  padding:8px 0 18px !important;
+}
+.marquee-item { border-radius:22px !important; box-shadow:var(--shadow-soft) !important; border:1px solid var(--border); }
+.marquee-item img { transition:transform .45s ease; }
+.marquee-item:hover img { transform:scale(1.045); }
+
+.stats { gap:14px !important; }
+.stat-card {
+  padding:22px !important;
+  border-radius:22px !important;
+  background:var(--surface) !important;
+  border:1px solid var(--border) !important;
+  box-shadow:var(--shadow-soft) !important;
+  backdrop-filter:var(--glass);
+}
+.stat-card strong { color:var(--text); }
+.stat-card span { color:var(--muted); }
+
+.grid { gap:20px !important; }
+.card {
+  border-radius:26px !important;
+  background:var(--surface) !important;
+  border:1px solid var(--border) !important;
+  box-shadow:var(--shadow-soft) !important;
+  backdrop-filter:var(--glass);
+  transition:opacity .6s ease,transform .35s ease,box-shadow .35s ease !important;
+}
+.card.visible:hover { transform:translateY(-7px) !important; box-shadow:var(--shadow) !important; }
+.card img { aspect-ratio:16/11 !important; transition:transform .5s ease,filter .5s ease; }
+.card:hover img { transform:scale(1.025); }
+.card-content { padding:24px !important; }
+.tag { background:var(--accent-soft) !important; color:var(--accent) !important; border:1px solid rgba(64,190,135,.18); }
+
+.map-section {
+  position:relative;
+  margin:70px 0 !important;
+  padding:28px !important;
+  border-radius:32px !important;
+  background:var(--surface) !important;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  backdrop-filter:var(--glass);
+  overflow:hidden;
+}
+.map-section::before {
+  content:"Explorar por localização";
+  display:inline-flex;
+  padding:7px 11px;
+  margin-bottom:8px;
+  border-radius:999px;
+  color:var(--accent);
+  background:var(--accent-soft);
+  font-size:.78rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.map-section h2 { text-align:left !important; margin:4px 0 22px !important; color:var(--text) !important; font-size:clamp(1.8rem,3vw,2.5rem) !important; }
+#app-wrapper { width:100% !important; gap:16px !important; }
+#map-wrapper {
+  width:100% !important;
+  height:min(650px,70vh) !important;
+  border-radius:24px !important;
+  border:1px solid var(--border);
+  box-shadow:none !important;
+  background:var(--surface-strong) !important;
+}
+#map { background:var(--surface-strong) !important; }
+
+/* Search was disabled by old CSS; restore it */
+#search-container {
+  display:block !important;
+  top:16px !important;
+  left:16px !important;
+  transform:none !important;
+  width:min(420px,calc(100% - 92px)) !important;
+  z-index:1100;
+}
+#search-input {
+  height:48px;
+  padding:0 16px 0 44px !important;
+  border:1px solid var(--border) !important;
+  border-radius:16px !important;
+  color:var(--text) !important;
+  background:var(--surface) !important;
+  box-shadow:0 10px 28px rgba(0,0,0,.12) !important;
+  backdrop-filter:var(--glass);
+}
+#search-container::before { content:"⌕"; position:absolute; left:16px; top:10px; z-index:2; color:var(--accent); font-size:1.35rem; }
+#search-results {
+  border:1px solid var(--border);
+  border-radius:16px !important;
+  background:var(--surface) !important;
+  backdrop-filter:var(--glass);
+  overflow:hidden;
+}
+.search-item { color:var(--text); border-color:var(--border) !important; }
+.search-item:hover { background:var(--accent-soft) !important; }
+
+#sidebar {
+  width:340px !important;
+  border-radius:22px !important;
+  background:var(--surface) !important;
+  color:var(--text) !important;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-soft) !important;
+  backdrop-filter:var(--glass);
+}
+#sidebar pre { color:var(--muted); font-size:.78rem; }
+.sidebar-close { border:0; background:var(--accent-soft); color:var(--accent); width:34px; height:34px; border-radius:999px; float:right; }
+
+.map-tools {
+  position:absolute;
+  top:16px;
+  right:16px;
+  z-index:1101;
+  display:flex;
+  gap:8px;
+}
+.map-tool-btn {
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  min-width:48px;
+  height:48px;
+  padding:0 14px;
+  border-radius:16px;
+  box-shadow:0 10px 28px rgba(0,0,0,.12);
+  backdrop-filter:var(--glass);
+  font-weight:800;
+}
+.map-tool-btn:hover { background:var(--accent-soft); color:var(--accent); }
+
+.leaflet-control-zoom a,.leaflet-control-attribution {
+  background:var(--surface) !important;
+  color:var(--text) !important;
+  border-color:var(--border) !important;
+}
+.leaflet-control-zoom { border:0 !important; box-shadow:var(--shadow-soft) !important; }
+.leaflet-popup-content-wrapper,.leaflet-popup-tip {
+  background:var(--surface-strong) !important;
+  color:var(--text) !important;
+}
+
+.admin-panel, footer {
+  background:var(--surface) !important;
+  border:1px solid var(--border) !important;
+  border-radius:26px !important;
+  box-shadow:var(--shadow-soft) !important;
+  backdrop-filter:var(--glass);
+}
+.field input,.field textarea,.field select {
+  color:var(--text) !important;
+  background:var(--surface-strong) !important;
+  border-color:var(--border) !important;
+}
+
+[data-theme="dark"] .header {
+  background-image:
+    linear-gradient(105deg,rgba(1,8,5,.94) 0%,rgba(2,15,10,.72) 48%,rgba(1,8,5,.38) 100%),
+    url('/assets/images/img-home.jpg') !important;
+}
+[data-theme="dark"] .marquee-item img,.card img { filter:saturate(.9) brightness(.94); }
+[data-theme="dark"] .leaflet-tile-pane { filter:saturate(.82) brightness(.88) contrast(1.05); }
+
+@media (max-width:780px) {
+  body { padding:12px !important; }
+  .header { min-height:520px; border-radius:26px !important; padding:28px 22px !important; }
+  .toolbar { width:100%; }
+  .toolbar .button,.toolbar .secondary { flex:1 1 auto; }
+  .map-section { padding:16px !important; border-radius:24px !important; }
+  #map-wrapper { height:58vh !important; min-height:430px; }
+  #search-container { width:calc(100% - 78px) !important; left:12px !important; top:12px !important; }
+  .map-tools { top:12px; right:12px; }
+  .map-tool-btn { width:46px; min-width:46px; padding:0; }
+  #sidebar { width:100% !important; }
+}

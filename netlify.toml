@@ -1,63 +1,28 @@
-functionsDirectory = "/data/data/com.termux/files/home/bioaves-fixed/netlify/functions"
-functionsDirectoryOrigin = "config-v1"
-headersOrigin = "config"
-redirectsOrigin = "config"
-plugins = []
-
 [build]
-publish = "/data/data/com.termux/files/home/bioaves-fixed/public"
-publishOrigin = "config"
-functions = "/data/data/com.termux/files/home/bioaves-fixed/netlify/functions"
-
-  [build.environment]
-
-  [build.processing]
-
-    [build.processing.css]
-
-    [build.processing.html]
-
-    [build.processing.images]
-
-    [build.processing.js]
-
-  [build.services]
-
-[functions]
-
-  [functions."*"]
-
-[[headers]]
-for = "/*"
-
-  [headers.values]
-  Content-Security-Policy = "default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: blob: https://images.unsplash.com https://unpkg.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests"
-  Referrer-Policy = "no-referrer"
-  X-Content-Type-Options = "nosniff"
-  X-Frame-Options = "DENY"
-  Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-  Strict-Transport-Security = "max-age=31536000"
-
-[[headers]]
-for = "/geojson/*"
-
-  [headers.values]
-  Cache-Control = "public, max-age=86400"
-
-[[headers]]
-for = "/assets/*"
-
-  [headers.values]
-  Cache-Control = "public, max-age=86400"
+  publish = "public"
+  functions = "netlify/functions"
 
 [[redirects]]
-from = "/admin0803"
-to = "/index.html"
-status = 200
-force = false
+  from = "/admin0803"
+  to = "/index.html"
+  status = 200
 
-  [redirects.query]
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: blob: https://images.unsplash.com https://unpkg.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests"
+    Referrer-Policy = "no-referrer"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000"
 
-  [redirects.conditions]
+[[headers]]
+  for = "/geojson/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
 
-  [redirects.headers]
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

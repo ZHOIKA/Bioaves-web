@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Passaromm — Catálogo de Passarinhos</title>
+  <meta name="theme-color" content="#0d1b15" />
+  <title>BioAves — Catálogo de Aves</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
   <link rel="stylesheet" href="map-styles.css" />
+  <link rel="stylesheet" href="ui-refresh.css" />
 </head>
 <body>
   <div class="container">
     <header class="header reveal">
       <div class="brand">
-        <small>Catálogo de Passarinhos</small>
-        <h1>Descubra aves raras com histórias e imagens.</h1>
-        <p>Explore um catálogo clean e expansivo de passarinhos. Visitantes veem apenas biografias; somente o administrador pode criar e validar novas postagens.</p>
+        <small>BioAves • Maranhão</small>
+        <h1>Descubra aves, histórias e lugares.</h1>
+        <p>Explore o catálogo, veja onde cada ave foi registrada e navegue pelo mapa interativo dos municípios maranhenses.</p>
       </div>
       <div class="toolbar">
         <button class="button" id="btn-view">Ver catálogo</button>
@@ -53,19 +55,19 @@
         <span>aves no catálogo</span>
       </div>
       <div class="stat-card">
-        <strong>Somente leitura</strong>
-        <span>usuários normais veem apenas biografias</span>
+        <strong>Mapa interativo</strong>
+        <span>explore registros por município</span>
       </div>
       <div class="stat-card">
-        <strong>POSTS administrados</strong>
-        <span>apenas admin pode criar novas entradas</span>
+        <strong>Catálogo vivo</strong>
+        <span>novos registros podem ser adicionados pelo administrador</span>
       </div>
     </div>
 
     <section class="grid" id="birdGrid"></section>
 
     <div class="map-section reveal">
-      <h2>Mapa Interativo de Maranhão</h2>
+      <h2>Mapa de aves do Maranhão</h2>
       <div id="app-wrapper">
         <div id="map-wrapper">
           <div id="search-container">
@@ -77,10 +79,10 @@
           </div>
         </div>
         <aside id="sidebar" aria-hidden="true">
-          <button class="sidebar-close" id="sidebar-close">×</button>
+          <button class="sidebar-close" id="sidebar-close" aria-label="Fechar painel">×</button>
           <div id="sidebar-content">
-            <h3>Município</h3>
-            <div id="sidebar-body">Clique em um município para ver detalhes.</div>
+            <h3>Município selecionado</h3>
+            <div id="sidebar-body">Toque em um município para ver detalhes e filtrar as aves.</div>
           </div>
         </aside>
       </div>
@@ -88,10 +90,10 @@
 
     <section class="admin-panel" id="adminPanel">
       <h2>Painel de admin</h2>
-      <p>Crie uma postagem detalhada com foto, espécie, local de avistamento e descrição do passarinho.</p>
+      <p>Crie uma postagem detalhada com foto, espécie, local de avistamento e descrição da ave.</p>
       <div class="form-grid">
         <div class="field">
-          <label for="birdName">Nome do pássaro</label>
+          <label for="birdName">Nome da ave</label>
           <input type="text" id="birdName" placeholder="Ex: Beija-flor" />
         </div>
         <div class="field">
@@ -99,22 +101,20 @@
           <input type="text" id="birdSpecies" placeholder="Ex: Colibri serrirostris" />
         </div>
         <div class="field">
-          <label for="birdLocation">Local onde foi encontrado</label>
+          <label for="birdLocation">Local onde foi encontrada</label>
           <input type="text" id="birdLocation" placeholder="Ex: Mata Atlântica" />
         </div>
         <div class="field">
-          <label for="birdRegion">Região</label>
-          <select id="birdRegion" aria-label="Selecione a região do avistamento">
-            <!-- opções serão populadas dinamicamente pelo script -->
-          </select>
+          <label for="birdRegion">Município</label>
+          <select id="birdRegion" aria-label="Selecione o município do avistamento"></select>
         </div>
         <div class="field" style="grid-column: 1 / -1;">
-          <label for="birdPhoto">Foto do pássaro</label>
+          <label for="birdPhoto">Foto da ave</label>
           <input type="file" id="birdPhoto" accept="image/*" />
         </div>
         <div class="field" style="grid-column: 1 / -1;">
           <label for="birdDescription">Descrição / biografia</label>
-          <textarea id="birdDescription" maxlength="1200" placeholder="Conte onde foi visto, curiosidades e características..."></textarea>
+          <textarea id="birdDescription" maxlength="1200" placeholder="Conte onde foi vista, curiosidades e características..."></textarea>
         </div>
       </div>
       <button class="button" id="addBirdButton" type="button">Criar postagem</button>
@@ -123,14 +123,13 @@
       <p class="notice">As credenciais de administrador são validadas com segurança no servidor.</p>
     </section>
 
-    <footer class="reveal">
-      Este é um site moderno e expansivo para catálogo de passarinhos, com backend para validar publicações e um painel de administração local.
-    </footer>
+    <footer class="reveal">BioAves • Catálogo e mapa interativo de aves.</footer>
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
   <script src="script.js" defer></script>
   <script src="prevent-double-submit.js" defer></script>
   <script src="map.js" defer></script>
+  <script src="ui-refresh.js" defer></script>
 </body>
 </html>

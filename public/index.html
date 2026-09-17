@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0d1b15" />
+  <meta name="description" content="BioAves — catálogo de aves do Maranhão com registros, fotos e informações." />
   <title>BioAves — Catálogo de Aves</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="map-styles.css" />
   <link rel="stylesheet" href="ui-refresh.css" />
   <link rel="stylesheet" href="download-app.css" />
+  <link rel="stylesheet" href="site-polish.css" />
 </head>
 <body>
   <a class="app-download-link" href="https://raw.githubusercontent.com/ZHOIKA/Bioaves/main/downloads/BioAves.apk" title="Baixar app BioAves" aria-label="Baixar app BioAves">
@@ -21,110 +21,91 @@
   </a>
 
   <div class="container">
-    <header class="header reveal">
+    <header class="header reveal hero-premium">
+      <div class="hero-glow hero-glow-a"></div>
+      <div class="hero-glow hero-glow-b"></div>
       <div class="brand">
         <small>BioAves • Maranhão</small>
-        <h1>Descubra aves, histórias e lugares.</h1>
-        <p>Explore o catálogo, veja onde cada ave foi registrada e navegue pelo mapa interativo dos municípios maranhenses.</p>
+        <h1>Descubra a vida que voa ao nosso redor.</h1>
+        <p>Um catálogo vivo de aves, fotos e histórias de avistamentos. Explore os registros e conheça melhor a biodiversidade maranhense.</p>
+        <div class="hero-pills" aria-label="Destaques do projeto">
+          <span>Catálogo visual</span>
+          <span>Registros reais</span>
+          <span>Atualizado pelo projeto</span>
+        </div>
       </div>
       <div class="toolbar">
-        <button class="button" id="btn-view">Ver catálogo</button>
+        <button class="button" id="btn-view">Explorar aves</button>
         <button class="secondary" id="toggleFeedButton">Modo Feed</button>
-        <button class="secondary theme-btn" id="themeToggle" title="Alternar tema"></button>
+        <button class="secondary theme-btn" id="themeToggle" title="Alternar tema" aria-label="Alternar tema"></button>
         <button class="secondary" id="adminButton">Entrar como admin</button>
       </div>
     </header>
 
-    <button class="scroll-indicator" id="scrollDown" aria-label="Role para baixo para ver o catálogo">
-      <span></span>
-    </button>
+    <button class="scroll-indicator" id="scrollDown" aria-label="Role para baixo para ver o catálogo"><span></span></button>
 
     <section class="image-marquee reveal" aria-label="Galeria de fotos com rolagem horizontal infinita">
       <div class="marquee-track">
         <div class="marquee-group">
-          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de pássaro" /></div>
-          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de pássaro" /></div>
-          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de pássaro" /></div>
-          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de pássaro" /></div>
-          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de pássaro" /></div>
+          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de ave" /></div>
+          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de ave" /></div>
+          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de ave" /></div>
+          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de ave" /></div>
+          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de ave" /></div>
         </div>
         <div class="marquee-group" aria-hidden="true">
-          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de pássaro" /></div>
-          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de pássaro" /></div>
-          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de pássaro" /></div>
-          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de pássaro" /></div>
-          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de pássaro" /></div>
+          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de ave" /></div>
+          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de ave" /></div>
+          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de ave" /></div>
+          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de ave" /></div>
+          <div class="marquee-item"><img src="/assets/images/img-home.jpg" alt="Foto de ave" /></div>
         </div>
       </div>
     </section>
 
-    <div class="stats reveal">
-      <div class="stat-card">
-        <strong id="birdCount">0</strong>
-        <span>aves no catálogo</span>
-      </div>
-      <div class="stat-card">
-        <strong>Mapa interativo</strong>
-        <span>explore registros por município</span>
-      </div>
-      <div class="stat-card">
-        <strong>Catálogo vivo</strong>
-        <span>novos registros podem ser adicionados pelo administrador</span>
-      </div>
-    </div>
+    <section class="stats reveal stats-premium" aria-label="Informações do catálogo">
+      <div class="stat-card"><strong id="birdCount">0</strong><span>aves no catálogo</span></div>
+      <div class="stat-card"><strong>Fotos e histórias</strong><span>cada registro reúne imagem e informações</span></div>
+      <div class="stat-card"><strong>BioAves</strong><span>uma experiência leve no site e no app</span></div>
+    </section>
 
-    <section class="grid" id="birdGrid"></section>
-
-    <div class="map-section reveal">
-      <h2>Mapa de aves do Maranhão</h2>
-      <div id="app-wrapper">
-        <div id="map-wrapper">
-          <div id="search-container">
-            <input id="search-input" type="search" placeholder="Buscar município..." autocomplete="off" />
-            <div id="search-results" role="listbox" aria-label="Sugestões de municípios"></div>
-          </div>
-          <div id="map-container">
-            <div id="map"></div>
-          </div>
-        </div>
-        <aside id="sidebar" aria-hidden="true">
-          <button class="sidebar-close" id="sidebar-close" aria-label="Fechar painel">×</button>
-          <div id="sidebar-content">
-            <h3>Município selecionado</h3>
-            <div id="sidebar-body">Toque em um município para ver detalhes e filtrar as aves.</div>
-          </div>
-        </aside>
+    <section class="catalog-heading reveal">
+      <div>
+        <span class="section-kicker">CATÁLOGO</span>
+        <h2>Conheça as aves registradas</h2>
+        <p>Pesquise pelo nome, espécie, local ou região.</p>
       </div>
-    </div>
+      <label class="catalog-search" for="catalogSearch">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <input id="catalogSearch" type="search" placeholder="Buscar no catálogo..." autocomplete="off" />
+      </label>
+    </section>
+
+    <section class="grid catalog-grid" id="birdGrid"></section>
+
+    <section class="mission-section reveal" aria-label="Sobre o BioAves">
+      <div class="mission-copy">
+        <span class="section-kicker">BIOAVES</span>
+        <h2>Conheça. Registre. Preserve.</h2>
+        <p>O BioAves aproxima pessoas da biodiversidade por meio de registros visuais e informações acessíveis sobre as aves encontradas.</p>
+      </div>
+      <div class="mission-grid">
+        <article class="mission-card"><span>01</span><h3>Conheça</h3><p>Explore espécies e descubra características de cada ave.</p></article>
+        <article class="mission-card"><span>02</span><h3>Registre</h3><p>Organize avistamentos com foto, localidade e descrição.</p></article>
+        <article class="mission-card"><span>03</span><h3>Preserve</h3><p>Valorize a fauna local e fortaleça a educação ambiental.</p></article>
+      </div>
+    </section>
 
     <section class="admin-panel" id="adminPanel">
       <h2>Painel de admin</h2>
       <p>Crie uma postagem detalhada com foto, espécie, local de avistamento e descrição da ave.</p>
       <div class="form-grid">
-        <div class="field">
-          <label for="birdName">Nome da ave</label>
-          <input type="text" id="birdName" placeholder="Ex: Beija-flor" />
-        </div>
-        <div class="field">
-          <label for="birdSpecies">Espécie</label>
-          <input type="text" id="birdSpecies" placeholder="Ex: Colibri serrirostris" />
-        </div>
-        <div class="field">
-          <label for="birdLocation">Local onde foi encontrada</label>
-          <input type="text" id="birdLocation" placeholder="Ex: Mata Atlântica" />
-        </div>
-        <div class="field">
-          <label for="birdRegion">Município</label>
-          <select id="birdRegion" aria-label="Selecione o município do avistamento"></select>
-        </div>
-        <div class="field" style="grid-column: 1 / -1;">
-          <label for="birdPhoto">Foto da ave</label>
-          <input type="file" id="birdPhoto" accept="image/*" />
-        </div>
-        <div class="field" style="grid-column: 1 / -1;">
-          <label for="birdDescription">Descrição / biografia</label>
-          <textarea id="birdDescription" maxlength="1200" placeholder="Conte onde foi vista, curiosidades e características..."></textarea>
-        </div>
+        <div class="field"><label for="birdName">Nome da ave</label><input type="text" id="birdName" placeholder="Ex: Beija-flor" /></div>
+        <div class="field"><label for="birdSpecies">Espécie</label><input type="text" id="birdSpecies" placeholder="Ex: Colibri serrirostris" /></div>
+        <div class="field"><label for="birdLocation">Local onde foi encontrada</label><input type="text" id="birdLocation" placeholder="Ex: Mata Atlântica" /></div>
+        <div class="field"><label for="birdRegion">Localidade / região</label><select id="birdRegion" aria-label="Selecione a localidade do avistamento"></select></div>
+        <div class="field" style="grid-column: 1 / -1;"><label for="birdPhoto">Foto da ave</label><input type="file" id="birdPhoto" accept="image/*" /></div>
+        <div class="field" style="grid-column: 1 / -1;"><label for="birdDescription">Descrição / biografia</label><textarea id="birdDescription" maxlength="1200" placeholder="Conte onde foi vista, curiosidades e características..."></textarea></div>
       </div>
       <button class="button" id="addBirdButton" type="button">Criar postagem</button>
       <p class="message" id="formMessage"></p>
@@ -132,13 +113,15 @@
       <p class="notice">As credenciais de administrador são validadas com segurança no servidor.</p>
     </section>
 
-    <footer class="reveal">BioAves • Catálogo e mapa interativo de aves.</footer>
+    <footer class="reveal footer-premium">
+      <strong>BioAves</strong>
+      <span>Catálogo de aves e biodiversidade do Maranhão.</span>
+    </footer>
   </div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
   <script src="script.js" defer></script>
   <script src="prevent-double-submit.js" defer></script>
-  <script src="map.js" defer></script>
   <script src="ui-refresh.js" defer></script>
+  <script src="no-map.js" defer></script>
 </body>
 </html>
